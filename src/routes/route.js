@@ -70,4 +70,46 @@ router.post("/test-post-4", function(req, res) {
     res.send(  { msg: arr , status: true }  )
 })
 
-module.exports = router;
+//module.exports = router;
+
+
+let person = [
+    {
+        name: "pk",
+        age: 10,
+        votingStatus: false
+    },
+    {
+        name: "sk",
+        age: 20,
+        votingStatus: false
+    },
+    {
+        name: "AA",
+        age: 70,
+        votingStatus: false
+    },
+    {
+        name: "mn",
+        age: 5,
+        votingStatus: false
+    },
+    {
+        name: "Ho",
+        age: 40,
+        votingStatus:false
+    }
+]
+router.post("/getvotingstatus", function(req, res){
+    let VotingAge = req.query.age
+    let ElegiblePerson = []
+    for (let i = 0; i < person.length; i++)
+    {
+        if (person[i].age > VotingAge) {
+            person[i].votingStatus = true;
+            ElegiblePerson.push(person[i])
+
+        }
+    }
+    res.send({ Person: ElegiblePerson, status: true})
+})
