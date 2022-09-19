@@ -40,3 +40,6 @@ const isValidLink=function(link){
 
 
   module.exports={isValidEmail,isValidId,isValidMobile,isValidName,isValidShortName,isValidFullName,isValidLink}
+
+
+  
